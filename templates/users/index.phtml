@@ -1,0 +1,9 @@
+<form action="/users" method = "get">
+    <input type="search" name = "includes">
+    <input type="submit" value = "Search">
+</form>
+<ul>
+<?php foreach($users as $user) :?>
+<li><h3><?= $user ?></h3></li>
+<?php endforeach?>
+</ul>
