@@ -5,6 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 use Slim\Factory\AppFactory;
 use DI\Container;
 
+$file = 'public/users.json';
 $container = new Container();
 $container->set('render', function () {
     // Параметром передается базовая директория, в которой будут храниться шаблоны
@@ -40,12 +41,22 @@ $app->get('/users', function ($request, $response) use ($users) {
 });
 
 
-$app->post('/users', function($request, $response){
-    return $response->withStatus(302);
+$app->get('/usersForm', function($request, $response){
+    return $this->get('render')->render($response, 'users/register.phtml');
+});
+$app->post('/users', function($request,$response) use($file){
+    $user = $request->getParsedBodyParam('user');
+    $userJson = json_encode($user);
+    $current = file_get_contents($file);
+    $current .= $userJson;
+    file_put_contents($file, $current);
+    $params = ['id' => $user['name']];
+    return $this->get('render')->render($response, 'users/show.phtml',$params);
 });
 $app->get('/courses/{id}', function($request, $response, array $args){
     $id = $args['id'];
     return $response->write("Course id {$id}");
+    return $this->get('render')->render($response, 'users/show.phtml');
 });
 
 
