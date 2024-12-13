@@ -4,6 +4,12 @@
 </form>
 <ul>
 <?php foreach($users as $user) :?>
-<li><h3><?= $user ?></h3></li>
+<div style = "display:flex; width:200px; justify-content:space-between;list-style:none">
+<li><h3><?= $user['name'] ?></h3></li>
+<li><h3><?= $user['password'] ?></h3></li>
+</div>
 <?php endforeach?>
 </ul>
+<form action="/usersForm" method = "get">
+    <input type="submit" value = "New user">
+</form>

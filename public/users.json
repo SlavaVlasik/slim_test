@@ -1,1 +1,14 @@
-{"name":"qwer","password":"123"}{"name":"Slava","password":"1111"}{"name":"Slava1","password":"11112"}{"name":"Slava1","password":"11112"}{"name":"Slava114","password":"11112"}{"name":"Slava114","password":"11112"}{"name":"slava","password":"1234"}{"name":"slava","password":"1234"}
+[
+    {
+        "name": "Slava",
+        "password": "123"
+    },
+    {
+        "name": "Daria",
+        "password": "234"
+    },
+    {
+        "name": "Alex",
+        "password": "111"
+    }
+]

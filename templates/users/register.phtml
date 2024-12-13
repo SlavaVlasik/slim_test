@@ -4,10 +4,16 @@
         Имя
     <input type="text" name = "user[name]">
     </label>
+    <?php if (isset($errors['name'])): ?>
+      <div><?= $errors['name'] ?></div>
+    <?php endif ?>
     <label>
         Пароль
     <input type="password" name = "user[password]">
     </label>
+    <?php if (isset($errors['password'])): ?>
+      <div><?= $errors['password'] ?></div>
+    <?php endif ?>
     <input type="submit" value="Отправить">
     
 </form>
